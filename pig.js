@@ -23,15 +23,21 @@ Player.prototype.pig = function() {
 	return this.bankscore;
 }
 
-var Game = function() {
-	this.turn_limit;
-	this.win_score;
+var Game = function(player_names, win_score, turn_limit) {
+	this.turn_limit = turn_limit;
+	this.win_score = win_score;
 	this.turn_score = 0;
-	this.turn_count = 0;
+	this.turn_count = player_names.length;
 	this.player_list = [];
+	for (i = 0; i < player_names.length; i++){
+		this.player_list.push( new Player(player_names[i]));
+	}
 	this.dice = [];
-	this.current_leader;
-	this.current_player;
+	for (i = 0; i < 2; i++){
+		this.dice.push(new Di(6));
+	}
+	this.current_leader = this.player_list[0];
+	this.current_player = this.player_list[0];
 }
 
 Game.prototype.outcomes = function() {
@@ -54,36 +60,25 @@ Game.prototype.outcomes = function() {
 
 }
 
-Game.prototype.start = function(no_of_players, player_names, win_score, turn_limit) {
-	this.turn_limit = turn_limit;
-	this.win_score = win_score;
-	for (i = 0; i < no_of_players; i++){
-		this.player_list.push( new Player(player_names[i]));
-	}
-	for (i = 0; i < 2; i++){
-		this.dice.push(new Di(6));
-	}
-	return this;
-}
-
 Game.prototype.roll = function() {
 	for (i = 0; i < this.dice.length; i++) {
 		this.dice[i].roll();
 	}
+	this.outcomes();
 	return this.dice;
 }
 
 Game.prototype.end_turn = function() {
 	if (this.turn_score > 0) {
-		current_player.addScore(this.turn_score);
+		this.current_player.addScore(this.turn_score);
 		this.turn_score = 0;
 	}
-	if (current_player.bankscore >= this.win_score) {
-		this.declare_winner(current_player);
+	if (this.current_player.bankscore >= this.win_score) {
+		this.declare_winner(this.current_player);
 		return;
 	}
-	if (current_player.bankscore > current_leader.bankscore){
-		current_leader = current_player;
+	if (this.current_player.bankscore > this.current_leader.bankscore){
+		this.current_leader = this.current_player;
 	}
 	this.is_game_over();
 	return;
@@ -92,7 +87,7 @@ Game.prototype.end_turn = function() {
 
 Game.prototype.is_game_over = function() {
 	if (this.turn_limit === 0){
-		this.declare_winner(current_leader);
+		this.declare_winner(this.current_leader);
 		return true;
 	}
 	if (this.player_list.length < 2){
@@ -101,6 +96,16 @@ Game.prototype.is_game_over = function() {
 	}
 	this.turn_count = (this.turn_count + 1) % this.player_list.length;
 	this.turn_limit -= 1;
-	this.current_player = player_list[this.turn_count]
+	this.current_player = this.player_list[this.turn_count]
 	return false;
+}
+
+Game.prototype.declare_winner = function(player) {
+	console.log(player.username + " is the winner!");
+}
+
+Game.prototype.drop_player = function() {
+	if (this.current_player === this.player_list[this.turn_count]) {
+		this.player_list.splice(this.turn_count,1)
+	}
 }
