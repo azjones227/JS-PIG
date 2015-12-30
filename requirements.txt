@@ -1,5 +1,7 @@
 JS-PIG by Amos Jones
 
-In order for this program to run properly, you need jquery-2.1.4.js. You can
-either download the file locally from jquery.com or link to the file by adding this line to the index.html:
+jquery-2.1.4.js: 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+Mustache:
+<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
