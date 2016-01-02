@@ -1,9 +1,12 @@
 $(document).ready(function(){
-    
+
     var setup_to_DOM = function() {
         var game_template = $('#gameTemplate').html();
+        var scoreboard_template = $('#scoreboardTemplate').html();
         $('#game').html(Mustache.render(game_template, {winScore: pig.win_score, remaining: pig.turn_limit, turnScore: pig.turn_score}))
-        
+        for (i = 0, i < pig.player_list.length, i++){
+            $('#scoreboard').append(Mustache.render(scoreboardTemplate, {name: pig.player_list[i].username, score: pig.player_list[i].bankscore}))
+        }
     };
 
     var currentPlayerCount = 2;

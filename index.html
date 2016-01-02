@@ -1,5 +1,7 @@
 <HTML>
 	<HEAD>
+		<title>JavaScript Pig</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
 		<script src="jquery-2.1.4.js" type="text/javascript"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
 		<script src="pig.js" type="text/javascript"></script>
@@ -14,27 +16,23 @@
 			Turn Score: {{ turnScore }} <br />
 		</script>
 		<script type="x/mustache" id="scoreboardTemplate">
-		</script>
-		<script type="x/mustache" id="playTemplate">
-		</script>		
-		<script type="x/mustache" id="controlsTemplate">
+			<div>{{ name }}<br />{{ score }}</div>
 		</script>
 	</HEAD>
 	<BODY>
-		<h1>JAVASCRIPT PIG</h1>
-		<div id='game'>
+		<h1>JavaScript Pig</h1>
+		<div id='game' class='area'>
 			
 		</div>
-		<div id='scoreboard'>
+		<div id='scoreboard' class='area'>
 			
 		</div>
-		<div id='play'>
-			
-		</div>
-		<div id='controls'>
-			
-		</div>
+		<div id='controls' class='area'>
 
+		</div>
+		<div id='play' class='area'>
+			
+		</div>
 		<div>
 			<form>
 			    <input type="number" name="winScore" placeholder="Win Score" />
