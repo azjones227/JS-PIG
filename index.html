@@ -16,38 +16,41 @@
 			Turn Score: {{ turnScore }} <br />
 		</script>
 		<script type="x/mustache" id="scoreboardTemplate">
-			<div>{{ name }}<br />{{ score }}</div>
+			<div class="player">{{ name }}<br />{{ score }}</div>
 		</script>
 	</HEAD>
 	<BODY>
-		<h1>JavaScript Pig</h1>
-		<div id='game' class='area'>
-			
-		</div>
-		<div id='scoreboard' class='area'>
-			
-		</div>
-		<div id='controls' class='area'>
-			<ul>
-				<li><button id="roll">Roll</button></li>
-				<li><button id="end">End Turn</button></li>
-				<li><button id="drop">Drop Player</button></li>
-			</ul>
-		</div>
-		<div id='play' class='area'>
-			
-		</div>
-		<div>
-			<form>
-			    <input type="number" name="winScore" placeholder="Win Score" />
-			    <input type="number" name="turnCount" placeholder="Max Turns" /><br />
-			    Player 1:<br />
-			    <input type="text" name="player1" class="players" /><br />
-			    Player 2:<br />
-			    <input type="text" name="player2" class="players" /><br />
-			    <button type="button" id="addPlayer">Add Player</button>
-			    <button type="submit">Start</button>
-			</form>
+		<div id="main">
+			<h1>JavaScript Pig</h1>
+			<div id='game' class='area'>
+				
+			</div>
+			<div id='scoreboard' class='area'>
+				
+			</div>
+			<br />
+			<div id='controls' class='area'>
+				<ul>
+					<li><button id="roll">Roll</button></li>
+					<li><button id="end">End Turn</button></li>
+					<li><button id="drop">Drop Player</button></li>
+				</ul>
+			</div>
+			<div id='play' class='area'>
+				
+			</div>
+			<div>
+				<form>
+				    <input type="number" name="winScore" placeholder="Win Score" />
+				    <input type="number" name="turnCount" placeholder="Max Turns" /><br />
+				    Player 1:<br />
+				    <input type="text" name="player1" class="players" /><br />
+				    Player 2:<br />
+				    <input type="text" name="player2" class="players" /><br />
+				    <button type="button" id="addPlayer">Add Player</button>
+				    <button type="submit">Start</button>
+				</form>
+			</div>
 		</div>
 	</BODY>
-</HTML>
+</HTML>	

@@ -13,22 +13,43 @@ h1 {
 }
 .area {
 	border-style: double;
-	border-width: medium; 
+	border-width: medium;
+	font-family: cursive;
+	font-size: 18px;
+	margin: auto; 
 }
 
 #game {
-	
+	width: 175px;
+	height: 100px;
+	display: inline-block;
 }
 
 #scoreboard {
-
+	width: 575px;
+	height: 100px;
+	display: inline-block;
 }
 
-#controls (
-
-)
+#controls {
+	width: 175px;
+	display: inline-block;
+}
 
 #play{
+	width: 575px;
+	display: inline-block;
 
 }
 
+.player{
+	border-style: solid;
+	border-width: 2px;
+	display: inline-block;
+}
+#main {
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	border: 2px solid black;
+}
