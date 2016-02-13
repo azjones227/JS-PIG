@@ -1,4 +1,34 @@
-.area
+body {
+	background: 
+}
 
-#play
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+	text-align: center;	
+}
+.area {
+	border-style: double;
+	border-width: medium; 
+}
+
+#game {
+	
+}
+
+#scoreboard {
+
+}
+
+#controls (
+
+)
+
+#play{
+
+}
 
