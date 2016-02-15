@@ -1,23 +1,31 @@
 h1 {
-	text-align: center;	
+	text-align: center;
+	font-family: cursive;
+	color: #ff66cc;	
 }
 
-button {
-	margin: auto;
+h2 {
+	text-align: center;
 }
 
 .area {
-	border-style: double;
-	border-width: medium;
+	border: medium double black;
+	margin: auto; 
 	font-family: cursive;
 	font-size: 18px;
-	margin: auto; 
+	color: #ff66cc;
 }
 
-.player{
-	border-style: solid;
-	border-width: 2px;
+.player {
+	border: 2px solid black;
 	display: inline-block;
+	padding: 2px 2px 2px 2px;
+}
+
+.dice {
+	width: 135px;
+	height: 135px;
+	margin: auto;
 }
 
 #main {
@@ -33,10 +41,12 @@ button {
 
 #chat{
 	width: 200px;
-	height: 510px;
+	height: 500px;
 	display: inline-block;
 	float: right;
 	background-color: #ffffff;
+	font-family: Arial;
+	color: black;
 }
 
 #game {
@@ -54,7 +64,7 @@ button {
 
 #play{
 	width: 575px;
-	height: 370px;
+	height: 360px;
 	display: inline-block;
 	float: left;
 }
@@ -63,6 +73,7 @@ button {
 	width: 575px;
 	height: 30px;
 	float: left;
+	text-align: center;
 }
 
 #controls button {

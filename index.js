@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.area').hide();
 
-    var to_DOM = function() {
+    var setup_DOM = function() {
         var game_template = $('#gameTemplate').html();
         var scoreboard_template = $('#scoreboardTemplate').html();
         $('#game').html(Mustache.render(game_template, {winScore: pig.win_score, remaining: pig.turn_limit, turnScore: pig.turn_score}))
@@ -26,8 +26,12 @@ $(document).ready(function(){
         var turn_limit = $("[name='turnCount']").val();
         pig = new Game(players, win_score, turn_limit)
         $('form').hide();
-        to_DOM();
+        setup_DOM();
         $('.area').fadeIn();        
     });
+
+    $('#roll').on('click', function(event){
+        pig.roll()
+    })
 
 });
