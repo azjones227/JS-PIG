@@ -1,0 +1,81 @@
+h1 {
+	text-align: center;
+	font-family: cursive;
+	color: #ff66cc;	
+}
+
+h2 {
+	text-align: center;
+}
+
+.area {
+	border: medium double black;
+	margin: auto; 
+	font-family: cursive;
+	font-size: 18px;
+	color: #ff66cc;
+}
+
+.player {
+	border: 2px solid black;
+	display: inline-block;
+	padding: 2px 2px 2px 2px;
+}
+
+.dice {
+	width: 135px;
+	height: 135px;
+	margin: auto;
+}
+
+#main {
+	background-image: url("images/green-felt-background-closeup-texture-55789067.jpg"); 
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-color: #009933;
+	width: 800px;
+	height: 600px;
+	margin: auto;
+	border: 2px solid black;
+}
+
+#chat{
+	width: 200px;
+	height: 500px;
+	display: inline-block;
+	float: right;
+	background-color: #ffffff;
+	font-family: Arial;
+	color: black;
+}
+
+#game {
+	width: 175px;
+	height: 95px;
+	float: left;
+}
+
+#scoreboard {
+	width: 575px;
+	height: 100px;
+	float: left;
+	display: inline-block;
+}
+
+#play{
+	width: 575px;
+	height: 360px;
+	display: inline-block;
+	float: left;
+}
+
+#controls {
+	width: 575px;
+	height: 30px;
+	float: left;
+	text-align: center;
+}
+
+#controls button {
+	display: inline-block;
+}

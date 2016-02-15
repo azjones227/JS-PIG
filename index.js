@@ -1,9 +1,13 @@
 $(document).ready(function(){
-    
-    var setup_to_DOM = function() {
+    $('.area').hide();
+
+    var setup_DOM = function() {
         var game_template = $('#gameTemplate').html();
+        var scoreboard_template = $('#scoreboardTemplate').html();
         $('#game').html(Mustache.render(game_template, {winScore: pig.win_score, remaining: pig.turn_limit, turnScore: pig.turn_score}))
-        
+        for (i = 0; i < pig.player_list.length; i++){
+            $('#scoreboard').append(Mustache.render(scoreboard_template, {name: pig.player_list[i].username, score: pig.player_list[i].bankscore}))
+        }
     };
 
     var currentPlayerCount = 2;
@@ -22,7 +26,12 @@ $(document).ready(function(){
         var turn_limit = $("[name='turnCount']").val();
         pig = new Game(players, win_score, turn_limit)
         $('form').hide();
-        setup_to_DOM();
+        setup_DOM();
+        $('.area').fadeIn();        
     });
+
+    $('#roll').on('click', function(event){
+        pig.roll()
+    })
 
 });
