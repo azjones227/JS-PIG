@@ -67,6 +67,7 @@ h2 {
 	height: 360px;
 	display: inline-block;
 	float: left;
+	text-align: center;
 }
 
 #controls {

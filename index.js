@@ -8,6 +8,10 @@ $(document).ready(function(){
         for (i = 0; i < pig.player_list.length; i++){
             $('#scoreboard').append(Mustache.render(scoreboard_template, {name: pig.player_list[i].username, score: pig.player_list[i].bankscore}))
         }
+        $("#die1").attr('src', 'images/1.png');
+        $("#die2").attr('src', 'images/1.png');
+        $("#status1").text('Welcome to PIG!')
+        $("#status2").text('Please roll the dice or click "Help" for tips on how to play.')
     };
 
     var currentPlayerCount = 2;
