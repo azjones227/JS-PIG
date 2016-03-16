@@ -15,7 +15,7 @@ var Player = function(name) {
 
 Player.prototype.addScore = function(turn_score) {
 	this.bankscore = this.bankscore + turn_score;
-	return this.bankscore;	
+	return this.bankscore;
 }
 
 Player.prototype.pig = function() {
@@ -38,37 +38,43 @@ var Game = function(player_names, win_score, turn_limit) {
 	}
 	this.current_leader = this.player_list[0];
 	this.current_player = this.player_list[0];
+	this.status = 0;
+	this.message = ["Please roll the dice.", "Double Pig! Your score is reset. Turn Over.", "Pig! Turn score reset.", "Doubles! Please roll again.", "Turn score increased.", ""]
 }
 
 Game.prototype.outcomes = function() {
 	if ((this.dice[0].current_value === 1) && (this.dice[1].current_value === 1)) {
-		console.log('double pig')
-		this.player_list[this.turn_count].pig();
-		this.end_turn(); 
+		this.status = 1;
+		this.player_list[this.turn_count].pig(); 
 	} else if ((this.dice[0].current_value === 1) || (this.dice[1].current_value === 1)) {
-		console.log('pig')
-		this.turn_score = 0;
-		this.end_turn(); 
+		this.status = 2;
+		this.turn_score = 0; 
 	} else if (this.dice[0].current_value === this.dice[1].current_value) {
-		console.log('doubles')
+		this.status = 3;
 		this.turn_score += (this.dice[0].current_value + this.dice[1].current_value);
-		this.roll();
 	} else {
-		console.log('turn score increased')
+		this.status = 4;
 		this.turn_score += (this.dice[0].current_value + this.dice[1].current_value);
 	}
 
 }
 
 Game.prototype.roll = function() {
-	for (i = 0; i < this.dice.length; i++) {
-		this.dice[i].roll();
+	if ((this.status === 1) || (this.status === 2) || (this.status === 5)){
+		return
+	} else {
+		for (i = 0; i < this.dice.length; i++) {
+			this.dice[i].roll();
+		}
+		this.outcomes();
+		return this.dice;
 	}
-	this.outcomes();
-	return this.dice;
 }
 
 Game.prototype.end_turn = function() {
+	if ((this.status === 0) || (this.status === 3) || (this.status === 5)){
+		return
+	}
 	if (this.turn_score > 0) {
 		this.current_player.addScore(this.turn_score);
 		this.turn_score = 0;
@@ -87,25 +93,28 @@ Game.prototype.end_turn = function() {
 
 Game.prototype.is_game_over = function() {
 	if (this.turn_limit === 0){
+		this.status = 5;
 		this.declare_winner(this.current_leader);
-		return true;
 	}
 	if (this.player_list.length < 2){
+		this.status = 5;
 		this.declare_winner(this.player_list[0]);
-		return true;
 	}
 	this.turn_count = (this.turn_count + 1) % this.player_list.length;
 	this.turn_limit -= 1;
 	this.current_player = this.player_list[this.turn_count]
-	return false;
+	this.status = 0;
+	return;
 }
 
 Game.prototype.declare_winner = function(player) {
-	console.log(player.username + " is the winner!");
+	this.message[5] = player.username + " is the winner! Game Over.";
 }
 
 Game.prototype.drop_player = function() {
 	if (this.current_player === this.player_list[this.turn_count]) {
-		this.player_list.splice(this.turn_count,1)
+		this.player_list.splice(this.turn_count,1);
+		this.is_game_over();
 	}
+	return;
 }

@@ -50,13 +50,13 @@ h2 {
 }
 
 #game {
-	width: 175px;
-	height: 95px;
+	width: 169px;
+	height: 100px;
 	float: left;
 }
 
 #scoreboard {
-	width: 575px;
+	width: 400px;
 	height: 100px;
 	float: left;
 	display: inline-block;

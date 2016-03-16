@@ -17,50 +17,25 @@
 			Turn Score: {{ turnScore }} <br />
 		</script>
 		<script type="x/mustache" id="scoreboardTemplate">
-			<div class="player" id={{ name }}>{{ name }}<br />{{ score }}</div>
+			<div class="player" id="{{ name }}">{{ name }}<br />{{ score }}</div>
 		</script>
 	</HEAD>
 	<BODY>
-		<div class="hidden">
-			<script type="text/javascript">
-				<!--//--><![CDATA[//><!--
-
-					if (document.images) {
-						img1 = new Image();
-						img2 = new Image();
-						img3 = new Image();
-						img4 = new Image();
-						img5 = new Image();
-						img6 = new Image();
-						img7 = new Image();
-
-						img1.src = "images/1.png";
-						img2.src = "images/2.png";
-						img3.src = "images/3.png";
-						img4.src = "images/4.png";
-						img5.src = "images/5.png";
-						img6.src = "images/6.png";
-						img7.src = "images/trophy.png";
-					}
-
-				//--><!]]>
-			</script>
-		</div>
 		<div id='main'>
 			<h1>JavaScript Pig</h1>
 			<div id='chat' class='area'>
 				<p>Chat function coming soon with online play update!</p>
 			</div>
-			<div id='scoreboard' class='area'>
-				<div id='game' class='area'>
+			<div id='game' class='area'>
 				
-				</div>
+			</div>
+			<div id='scoreboard' class='area'>
+
 			</div>
 			<div id='play' class='area'>
+				<img class="dice" id="die0" src=""></img>
 				<img class="dice" id="die1" src=""></img>
-				<img class="dice" id="die2" src=""></!img>
-				<h2 class="status" id="status1"></h2>
-				<h2 class="status" id="status2"></h2>		
+				<h2 id="status"></h2>
 			</div>
 			<div id='controls' class='area'>
 				<button id="roll">Roll</button>
