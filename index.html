@@ -13,8 +13,8 @@
 		</script>
 		<script type="x/mustache" id="gameTemplate">
 			Win Score: {{ winScore }}<br />
-			Turns Remaining: {{ remaining }} <br />
-			Turn Score: {{ turnScore }} <br />
+			Turns Remaining: <span id="TR">{{ remaining }}</span> <br />
+			Turn Score: <span id="TS">{{ turnScore }}</span> <br />
 		</script>
 		<script type="x/mustache" id="scoreboardTemplate">
 			<div class="player" id="{{ name }}">{{ name }}<br />{{ score }}</div>

@@ -36,6 +36,7 @@ $(document).ready(function(){
     $('#roll').on('click', function(event){
         event.preventDefault();
         pig.roll();
+        toDom[roll_update]();
     });
 
     $('#end').on('click', function(event){
@@ -52,9 +53,10 @@ $(document).ready(function(){
 
     toDom = {
         roll_update: function(){
-        $('#die0').attr('src', 'images/' + pig.dice[0].current_value + '.png')
-        $('#die1').attr('src', 'images/' + pig.dice[1].current_value + '.png')
-
+            $('#die0').attr('src', 'images/' + pig.dice[0].current_value + '.png');
+            $('#die1').attr('src', 'images/' + pig.dice[1].current_value + '.png');
+            $('#status').text(pig.message[pig.status]);
+            $('#TS').text(pig.turn_score);
         },
         end_update: function(){
 
